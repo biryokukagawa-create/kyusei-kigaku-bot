@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #1a1209;
+  --bg-secondary: #241a0e;
+  --bg-card: #2d2010;
+  --border: #5c4520;
+  --gold: #c8960c;
+  --gold-light: #e8b84b;
+  --gold-dim: #8a6510;
+  --text-primary: #f0e6c8;
+  --text-secondary: #b8a070;
+  --text-muted: #7a6040;
+  --accent: #e8b84b;
+  --user-bubble: #2a1f0d;
+  --assistant-bubble: #1e1508;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Noto Serif JP', serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* スクロールバーのカスタマイズ */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+/* タイピングアニメーション */
+@keyframes dot-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-6px); opacity: 1; }
+}
+
+.typing-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--gold-light);
+  border-radius: 50%;
+  animation: dot-bounce 1.2s infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* メッセージのフェードイン */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.message-enter {
+  animation: fadeInUp 0.3s ease-out forwards;
+}
+
+/* 星のキラキラ背景 */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
